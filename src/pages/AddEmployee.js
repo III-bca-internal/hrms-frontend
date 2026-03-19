@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import "./AddEmployee.css";
 
+// 🔥 SAME BASE URL USE
+const BASE_URL = "https://hr-backend-fse0hnffhte7cqeu.centralindia-01.azurewebsites.net";
+
 const AddEmployee = () => {
   const [showPopup, setShowPopup] = useState(false);
 
@@ -24,7 +27,7 @@ const AddEmployee = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("hr-backend-fse0hnffhte7cqeu.centralindia-01.azurewebsites.net/api/employees", {
+      const response = await fetch(`${BASE_URL}/api/employees`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -37,6 +40,8 @@ const AddEmployee = () => {
           shopping: Number(employee.shopping),
         }),
       });
+
+      console.log("POST STATUS:", response.status); // 🔥 DEBUG
 
       if (!response.ok) {
         throw new Error("Backend error");
@@ -54,8 +59,8 @@ const AddEmployee = () => {
         shopping: "",
       });
     } catch (error) {
-      console.error(error);
-      alert("❌ Cannot reach Backend. Please check backend server or API URL.");
+      console.error("POST ERROR:", error);
+      alert("❌ Cannot reach Backend. Check API URL.");
     }
   };
 
