@@ -24,7 +24,7 @@ const AddEmployee = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://hrms-backend-abyl.onrender.com/api/employees", {
+      const response = await fetch("hr-backend-fse0hnffhte7cqeu.centralindia-01.azurewebsites.net/api/employees", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -55,7 +55,7 @@ const AddEmployee = () => {
       });
     } catch (error) {
       console.error(error);
-      alert("❌ Cannot reach Backend. Make sure Spring Boot is running on port 8080");
+      alert("❌ Cannot reach Backend. Please check backend server or API URL.");
     }
   };
 
