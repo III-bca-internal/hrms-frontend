@@ -17,7 +17,7 @@ const Employees = () => {
 
   const fetchEmployees = async () => {
     try {
-      const response = await axios.get("https://hrms-backend-abyl.onrender.com/api/employees");
+      const response = await axios.get("https://hr-backend-fse0hnffhte7cqeu.centralindia-01.azurewebsites.net/api/employees")
       setEmployees(response.data);
       setLoading(false);
     } catch (error) {
@@ -37,8 +37,7 @@ const Employees = () => {
     if (!percentage) return;
 
     try {
-      await axios.put(
-        `https://hrms-backend-abyl.onrender.com/api/employees/${selectedId}?percentage=${percentage}`
+      await axios.put(`https://hr-backend-fse0hnffhte7cqeu.centralindia-01.azurewebsites.net/api/employees/${selectedId}?percentage=${percentage}`
       );
       setShowModal(false);
       fetchEmployees();
@@ -52,7 +51,7 @@ const Employees = () => {
     if (!window.confirm("Are you sure you want to delete this employee?")) return;
 
     try {
-      await axios.delete(`https://hrms-backend-abyl.onrender.com/api/employees/${id}`);
+      await axios.delete(`https://hr-backend-fse0hnffhte7cqeu.centralindia-01.azurewebsites.net/api/employees/${id}`);
       fetchEmployees();
     } catch (error) {
       alert("Delete failed");
