@@ -68,6 +68,15 @@ const Employees = () => {
           <button className="refresh-btn" onClick={fetchEmployees}>Refresh Data</button>
         </div>
 
+        
+<h4 style={{
+  marginTop: "10px",
+  color: "#4b2e83",
+  fontWeight: "bold"
+}}>
+  Total Employees: {employees.length}
+</h4>
+
         {loading ? (
           <p className="loading-text">Loading Employees...</p>
         ) : (
